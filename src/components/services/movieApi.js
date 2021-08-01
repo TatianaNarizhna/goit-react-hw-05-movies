@@ -1,10 +1,15 @@
+import axios from "axios";
+// const axios = require('axios');
 const BASE_URL = "https://developers.themoviedb.org/3";
-const API_KEY = "61153224aaaa08b03f5d3b14add082d2";
+const API_KEY = "a746c25728fd41f4fba1ed9293c9d732";
+
+axios.defaults.baseURL = BASE_URL;
 
 async function fetchMovies(url = "", config = {}) {
-  const response = await fetch(url, config);
-  return response.ok
-    ? await response.json()
+  const { data } = await axios.get(url, config);
+  console.log(data.results);
+  return data.ok
+    ? await data.json()
     : Promise.reject(new Error("Movie not found"));
 }
 
@@ -36,19 +41,11 @@ export function fetchMoviesReviews(movieId, page) {
   );
 }
 
-// function fetchSearch(search, page) {
-//     return fetch(
-//       `https://pixabay.com/api/?q=${search}&page=${page}&key=21902781-05f70a6abac1a4120ac7c9ed1&image_type=photo&orientation=horizontal&per_page=12`
-//     ).then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       }
-//       return Promise.reject(new Error(`Request ${search} not found`));
-//     });
-//   }
+// async function fetchTrend() {
+// //     const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
+// //     const { data } = await axios.get(url);
+// //     // console.log(data.results);
+// //     return data.results;
+// // }
 
-//   const api = {
-//     fetchSearch,
-//   };
-
-//   export default api;
+// // export default fetchTrend;
