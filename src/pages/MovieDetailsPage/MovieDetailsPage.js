@@ -1,3 +1,13 @@
+import { useParams } from "react-router-dom";
+import PageHeading from "../../components/PageHeading/PageHeading";
+
 export default function MovieDatailsPage() {
-  return <h2>detail</h2>;
+  const { movieId } = useParams();
+  console.log(movieId);
+
+  return (
+    <>
+      <PageHeading text={`${movieId}`} />
+    </>
+  );
 }
