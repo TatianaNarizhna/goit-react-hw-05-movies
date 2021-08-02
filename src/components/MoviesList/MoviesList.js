@@ -2,6 +2,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 function MoviesList({ movies }) {
   const { url } = useRouteMatch();
+  console.log(url);
 
   return (
     <div>

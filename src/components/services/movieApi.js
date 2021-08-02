@@ -31,7 +31,7 @@ export function fetchMoviesBySearch() {
 export function fetchMovieDetails(movieId) {
   return axios
     .get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
-    .then((response) => response.data);
+    .then((response) => response.data.results);
 }
 
 export function fetchMovieCredits(movieId) {
