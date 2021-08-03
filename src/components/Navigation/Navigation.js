@@ -8,7 +8,7 @@ const Navigation = () => (
     </NavLink>
 
     <NavLink
-      exact
+      // exact
       to="/movies"
       className={s.link}
       activeClassName={s.activeLink}
@@ -16,7 +16,7 @@ const Navigation = () => (
       MoviesPage
     </NavLink>
 
-    <NavLink
+    {/* <NavLink
       exact
       to="/movies/:movieId"
       className={s.link}
@@ -41,7 +41,7 @@ const Navigation = () => (
       activeClassName={s.activeLink}
     >
       Reviews
-    </NavLink>
+    </NavLink> */}
   </nav>
 );
 

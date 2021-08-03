@@ -9,7 +9,8 @@ function MoviesList({ movies }) {
       <ul>
         {movies.map(({ id, original_title }) => (
           <li key={id}>
-            <Link to={`${url}/${id}`}>{original_title}</Link>
+            {/* <Link to={`${url}/${id}`}>{original_title}</Link> */}
+            <Link to={`/movies/${id}`}>{original_title}</Link>
           </li>
         ))}
       </ul>

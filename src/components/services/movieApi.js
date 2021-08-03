@@ -20,10 +20,10 @@ export function fetchTrend() {
     .then((response) => response.data.results);
 }
 
-export function fetchMoviesBySearch() {
+export function fetchMoviesBySearch(search, page = 1) {
   return axios
     .get(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${search}&page=${page}include_adult=false`
     )
     .then((response) => response.data.results);
 }
@@ -31,7 +31,7 @@ export function fetchMoviesBySearch() {
 export function fetchMovieDetails(movieId) {
   return axios
     .get(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
-    .then((response) => response.data.results);
+    .then((response) => response.data);
 }
 
 export function fetchMovieCredits(movieId) {
