@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/MovieDetails/MovieDetails.module.css"],"names":[],"mappings":"AAAA,6BACE,YACF,CAEA,wCACE,gBACF","file":"movie-details-page.029c3a92.chunk.css","sourcesContent":[".details {\n  display: flex;\n}\n\n.detailsDescription {\n  margin-left: 50px;\n}\n"]}
