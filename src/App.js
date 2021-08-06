@@ -44,12 +44,12 @@ export default function App() {
             <MovieDetailsPage />
           </Route>
 
-          <Route>
+          {/* <Route>
             <NotFoundPage />
             <Redirect to="/" />
-          </Route>
-          {/* 
-          <Route render={() => <Redirect to={{ pathname: "/" }} />} /> */}
+          </Route> */}
+
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
 
           {/* <Route path="*">
             <HomePage />
