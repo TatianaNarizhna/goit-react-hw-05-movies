@@ -1,3 +1,5 @@
+import s from "../MovieDetails/MovieDetails.module.css";
+
 export default function MovieDetails({
   poster_path,
   title,
@@ -6,9 +8,9 @@ export default function MovieDetails({
   vote_average,
 }) {
   return (
-    <div>
+    <div className={s.details}>
       <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
-      <div>
+      <div className={s.detailsDescription}>
         <h2>{title}</h2>
         <p>
           User Score: <span>{vote_average * 10}%</span>
@@ -17,13 +19,9 @@ export default function MovieDetails({
         Overview:<span>{overview}</span>
         <h4>Genres</h4>
         <ul>
-          {/* {genres.map(genre => (
-            <li key={genre.id}>{genre.name}</li>
-          ))} */}
+          {genres &&
+            genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
         </ul>
-      </div>
-      <div>
-        <p>Additional information</p>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function MoviesPage() {
     moviesAPI
       .fetchMoviesBySearch(search)
       .then((response) => {
-        setfilms(response.data.results);
+        setfilms(response.results);
       })
       .catch(console.log(Error));
   }, [search]);
@@ -35,17 +35,3 @@ export default function MoviesPage() {
     </div>
   );
 }
-
-// useEffect(() => {
-//   if (search === '') return;
-
-//   moviesAPI
-//   .fetchMoviesBySearch(search)
-//   .then(response => {
-//     if (response.data === 0)
-//       throw Error(`no exist any films with ${search}`);
-//     setFilms(response.data);
-//     return response;
-//   })
-
-// }, [search])

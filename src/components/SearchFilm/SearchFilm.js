@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
-export default function SearchFilm() {
+export default function SearchFilm({ onSubmit }) {
   const [value, setValue] = useState("");
 
   const handleSearchFilm = (e) => {
     setValue(e.currentTarget.value.toLowerCase());
-  };
-
-  const formSubmit = (query) => {
-    if (query !== value) {
-      setValue(query);
-    }
   };
 
   const handleSubmit = (e) => {
@@ -20,7 +15,7 @@ export default function SearchFilm() {
     if (value.trim() === "") {
       return toast.error("Enter correct request!");
     }
-    formSubmit(value);
+    onSubmit(value);
     formReset();
   };
 
@@ -31,10 +26,6 @@ export default function SearchFilm() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="SearchForm">
-        <button type="submit" className="SearchForm-button">
-          <span className="SearchForm-button-label">Search</span>
-        </button>
-
         <input
           className="SearchForm-input"
           type="text"
@@ -44,7 +35,14 @@ export default function SearchFilm() {
           placeholder="Search movie"
           onChange={handleSearchFilm}
         />
+        <button type="submit" className="SearchForm-button">
+          <span className="SearchForm-button-label">Search</span>
+        </button>
       </form>
     </div>
   );
 }
+
+SearchFilm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

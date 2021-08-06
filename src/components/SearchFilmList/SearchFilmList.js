@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useRouteMatch } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 
 export default function FilmsList({ films }) {
   const { url } = useRouteMatch();
@@ -9,21 +9,9 @@ export default function FilmsList({ films }) {
     <ul>
       {films.map(({ id, original_title }) => (
         <li key={id}>
-          <Link to={`/movies/${id}`}>{original_title}</Link>
+          <NavLink to={`${url}/${id}`}>{original_title}</NavLink>
         </li>
       ))}
-
-      {/* {films[0] &&
-        films.map(({ id, original_title }) => {
-          return (
-            <FilmItem
-              key={id}
-              id={id}
-              original_title={original_title}
-              url={url}
-            />
-          );
-        })} */}
     </ul>
   );
 }

@@ -7,41 +7,9 @@ const Navigation = () => (
       HomePage
     </NavLink>
 
-    <NavLink
-      // exact
-      to="/movies"
-      className={s.link}
-      activeClassName={s.activeLink}
-    >
+    <NavLink to="/movies" className={s.link} activeClassName={s.activeLink}>
       MoviesPage
     </NavLink>
-
-    {/* <NavLink
-      exact
-      to="/movies/:movieId"
-      className={s.link}
-      activeClassName={s.activeLink}
-    >
-      MovieDetailsPage
-    </NavLink>
-
-    <NavLink
-      exact
-      to="/movies/:movieId/cast"
-      className={s.link}
-      activeClassName={s.activeLink}
-    >
-      Cast
-    </NavLink>
-
-    <NavLink
-      exact
-      to="/movies/:movieId/reviews"
-      className={s.link}
-      activeClassName={s.activeLink}
-    >
-      Reviews
-    </NavLink> */}
   </nav>
 );
 

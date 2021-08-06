@@ -1,4 +1,5 @@
 import { Link, useRouteMatch } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function MoviesList({ movies }) {
   const { url } = useRouteMatch();
@@ -17,5 +18,9 @@ function MoviesList({ movies }) {
     </div>
   );
 }
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MoviesList;

@@ -21,9 +21,6 @@ export default function HomePage() {
   return (
     <>
       <PageHeading text="Trending today" />
-      {/* {movies && movies.map(movie => <li key={movie.id}>
-        <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link>
-      </li> )} */}
       {movies && <MoviesList movies={movies} />}
     </>
   );
