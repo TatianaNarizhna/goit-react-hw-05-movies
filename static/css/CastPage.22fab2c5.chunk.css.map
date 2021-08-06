@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/pages/CastPage/CastPage.module.css"],"names":[],"mappings":"AAAA,0BACE,WACF","file":"CastPage.22fab2c5.chunk.css","sourcesContent":[".castList {\r\n  width: 240px;\r\n}\r\n"]}
