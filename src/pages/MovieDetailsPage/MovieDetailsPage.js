@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import * as moviesAPI from "../../components/services/movieApi";
+import * as moviesAPI from "../../services/movieApi";
 import MovieDatails from "../../components/MovieDetails/MovieDetails";
 import routes from "../../routes";
 // import PropTypes from "prop-types";
@@ -56,7 +56,7 @@ export default function MovieDatailsPage() {
     if (location.state && location.state.from) {
       return history.push(location.state.from);
     }
-    history.push(routes.home);
+    history.push(routes.movies);
   };
 
   return (

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Container from "./components/Container/Container";
 import AppBar from "./components/AppBar/AppBar";
 // import HomePage from "./pages/HomePage/HomePage";
@@ -38,9 +38,11 @@ export default function App() {
             <MovieDetailsPage />
           </Route>
 
-          <Route>
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+
+          {/* <Route path="*">
             <HomePage />
-          </Route>
+          </Route> */}
         </Switch>
       </Suspense>
     </Container>

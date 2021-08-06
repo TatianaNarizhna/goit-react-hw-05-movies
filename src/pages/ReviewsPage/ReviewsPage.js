@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as moviesAPI from "../../components/services/movieApi";
+import * as moviesAPI from "../../services/movieApi";
 import { useParams } from "react-router-dom";
 
 export default function ReviewsPage() {
