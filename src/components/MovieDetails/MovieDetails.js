@@ -1,4 +1,5 @@
 import s from "../MovieDetails/MovieDetails.module.css";
+import { useLocation } from "react-router-dom";
 
 export default function MovieDetails({
   poster_path,
@@ -7,6 +8,8 @@ export default function MovieDetails({
   genres,
   vote_average,
 }) {
+  const location = useLocation();
+  console.log(location);
   return (
     <div className={s.details}>
       <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />

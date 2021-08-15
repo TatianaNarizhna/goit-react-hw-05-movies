@@ -9,7 +9,7 @@ import {
 import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import * as moviesAPI from "../../services/movieApi";
-import MovieDatails from "../../components/MovieDetails/MovieDetails";
+import MovieDetails from "../../components/MovieDetails/MovieDetails";
 import routes from "../../routes";
 // import PropTypes from "prop-types";
 // import CastPage from "../CastPage/CastPage";
@@ -53,19 +53,10 @@ export default function MovieDatailsPage() {
   }, [movieId]);
 
   const buttonGoBack = () => {
-    // history.goBack();
+    if (location?.state?.search) {
+      return history.push(`?query=${location?.state?.search}`);
+    }
     history.push(location?.state?.from ?? "/");
-
-    // history.push(
-    //   `${location?.state?.from ?? '/'}${
-    //     location?.state?.search ? `?query=${location?.state?.search}` : ''
-    //   }`,
-    // );
-
-    // if (location.state && location.state.from) {
-    //   return history.push(location.state.from);
-    // }
-    // history.push(routes.home);
   };
 
   return (
@@ -80,7 +71,7 @@ export default function MovieDatailsPage() {
       </Button>
 
       {movie && (
-        <MovieDatails
+        <MovieDetails
           poster_path={movie.poster_path}
           title={movie.title}
           overview={movie.overview}
@@ -95,10 +86,30 @@ export default function MovieDatailsPage() {
         <hr />
         <ul>
           <li>
-            <NavLink to={`${match.url}/cast`}>Cast</NavLink>
+            <NavLink
+              to={{
+                pathname: `${match.url}/cast`,
+                state: {
+                  from: location?.state?.from ?? "/",
+                  search: location?.state?.search,
+                },
+              }}
+            >
+              Cast
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
+            <NavLink
+              to={{
+                pathname: `${match.url}/reviews`,
+                state: {
+                  from: location?.state?.from ?? "/",
+                  search: location?.state?.search,
+                },
+              }}
+            >
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>
