@@ -3,14 +3,14 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import {
   Route,
   useRouteMatch,
-  // useLocation,
+  useLocation,
   useHistory,
 } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import * as moviesAPI from "../../services/movieApi";
 import MovieDatails from "../../components/MovieDetails/MovieDetails";
-// import routes from "../../routes";
+import routes from "../../routes";
 // import PropTypes from "prop-types";
 // import CastPage from "../CastPage/CastPage";
 // import ReviewsPage from "../ReviewsPage/ReviewsPage";
@@ -24,7 +24,7 @@ const ReviewsPage = lazy(() =>
 export default function MovieDatailsPage() {
   const { movieId } = useParams();
   const match = useRouteMatch();
-  // const location = useLocation();
+  const location = useLocation();
   const history = useHistory();
   console.log(history);
   const [movie, setMovie] = useState({
@@ -53,7 +53,19 @@ export default function MovieDatailsPage() {
   }, [movieId]);
 
   const buttonGoBack = () => {
-    history.goBack();
+    // history.goBack();
+    history.push(location?.state?.from ?? "/");
+
+    // history.push(
+    //   `${location?.state?.from ?? '/'}${
+    //     location?.state?.search ? `?query=${location?.state?.search}` : ''
+    //   }`,
+    // );
+
+    // if (location.state && location.state.from) {
+    //   return history.push(location.state.from);
+    // }
+    // history.push(routes.home);
   };
 
   return (
@@ -83,22 +95,10 @@ export default function MovieDatailsPage() {
         <hr />
         <ul>
           <li>
-            <NavLink
-              to={{
-                pathname: `${match.url}/cast`,
-              }}
-            >
-              Cast
-            </NavLink>
+            <NavLink to={`${match.url}/cast`}>Cast</NavLink>
           </li>
           <li>
-            <NavLink
-              to={{
-                pathname: `${match.url}/reviews`,
-              }}
-            >
-              Reviews
-            </NavLink>
+            <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
           </li>
         </ul>
       </div>

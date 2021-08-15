@@ -20,11 +20,11 @@ const MovieDetailsPage = lazy(() =>
   )
 );
 
-const NotFoundPage = lazy(() =>
-  import(
-    "./pages/NotFoundPage/NotFoundPage.js" /* webpackChunkName: "NotFound-page" */
-  )
-);
+// const NotFoundPage = lazy(() =>
+//   import(
+//     "./pages/NotFoundPage/NotFoundPage.js" /* webpackChunkName: "NotFound-page" */
+//   )
+// );
 
 export default function App() {
   return (
